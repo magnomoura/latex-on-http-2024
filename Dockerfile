@@ -12,7 +12,7 @@
 
 # Start from our docker-texlive distribution.
 # https://hub.docker.com/r/yoant/docker-texlive
-FROM yoant/latexonhttp-python
+FROM yoant/latexonhttp-python:debian
 LABEL maintainer="Yoan Tournade <yoan@ytotech.com>"
 
 # Set locales.
