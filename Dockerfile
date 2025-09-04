@@ -12,7 +12,7 @@
 
 # Start from our docker-texlive distribution.
 # https://hub.docker.com/r/yoant/docker-texlive
-FROM yoant/latexonhttp-python:debian
+FROM yoant/latexonhttp-python:debian@sha256:69b596173a1e0b58e94625b16955d883b276707f59d242f36d0b673238a846f3
 LABEL maintainer="Yoan Tournade <yoan@ytotech.com>"
 
 # Set locales.
@@ -27,7 +27,7 @@ WORKDIR /app/latex-on-http/
 COPY app.py Makefile Pipfile Pipfile.lock /app/latex-on-http/
 COPY ./latexonhttp/ /app/latex-on-http/latexonhttp/
 
-RUN apt-get update && apt-get install -y make
+
 # Install app dependencies.
 RUN make install
 
