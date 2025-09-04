@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  latex:
+    build: .
+    command: make start
+    ports:
+     - "9898:8080"
+    volumes:
+     - .:/app/latex-on-http
+    environment:
+      CACHE_HOST: cache
+      KEEP_WORKSPACE_DIR_ON_ERROR: 1
+  cache:
+    build:
+      context: .
+      dockerfile: cache.Dockerfile
+    command: make start-cache
+    volumes:
+     - .:/app/latex-on-http
